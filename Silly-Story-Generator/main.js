@@ -5,7 +5,7 @@ Date: 13 April 2026
 Assignment#4 part 1 -  A silly story generator
 */
 
-// Complete variable definitions and random functions
+// Complete variable definitions and random function
 
 const customName = document.getElementById("custom-name");
 const generateBtn = document.querySelector(".generate");
@@ -16,7 +16,8 @@ function randomValueFromArray(array) {
 return array[random];
 }
 
-// Raw text strings
+// Solution: Raw text strings
+
 const characters = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
 const places = ["the soup kitchen", "Disneyland", "the White House"];
 const events = [
@@ -37,21 +38,25 @@ let storyText = `It was 94 Fahrenheit outside, so ${randomCharacter} went for a 
 return storyText;
 }
 
-// Event listener and partial generate function definition
+//Event listener and partial generate function definition
 
 generateBtn.addEventListener("click", generateStory);
 
 function generateStory() {
+let newStory = returnRandomStoryString();
+
 if (customName.value !== "") {
     const name = customName.value;
+    newStory = newStory.replace("Bob", name);
 }
 
-  if (document.getElementById("uk").checked) {
-    const weight = Math.round(300);
-    const temperature = Math.round(94);
-  }
+if (document.getElementById("uk").checked) {
+    const weight = `${Math.round(300 / 14)} stone`;
+    const temperature = `${Math.round((94 - 32) * (5 / 9))} Celsius`;
+    newStory = newStory.replace("300 pounds", weight);
+    newStory = newStory.replace("94 Fahrenheit", temperature);
+}
 
-  // TODO: replace "" with the correct expression
-  story.textContent = "";
-  story.style.visibility = "visible";
+story.textContent = newStory;
+story.style.visibility = "visible";
 }
