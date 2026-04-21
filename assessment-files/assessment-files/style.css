@@ -1,33 +1,27 @@
+/* Requirement: Modify color scheme to increase contrast (Darker background, white text for nav) */
 body {
-  background-color: #f0f0f0;
-  color: #222; /* Darker text for better contrast */
+  background-color: #fcfcfc;
+  color: #1a1a1a; /* Very dark grey for best reading contrast */
 }
 
 nav, article, footer, .secondary {
   background-color: #ffffff; 
 }
 
-/* Visually hide content but keep it available for screen readers */
-.visually-hidden {
-  position: absolute;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
+article, footer, .secondary {
+  padding: 10px 30px;
 }
 
-/* Updated selectors for semantic HTML */
-header h1 {
-  font-size: 4rem;
-  text-align: center;
+article {
+  margin-right: 10px;
 }
 
+/* Requirement: Selector changed from div[class="nav"] to nav */
 nav {
-  height: auto; /* Changed from 50px to allow content to flow */
-  background-color: #7a007a; /* Darker magenta for better contrast */
+  height: auto;
+  background-color: #5b005b; /* Darker purple for accessible contrast ratio */
   display: flex;
-  padding: 10px 0;
+  padding: 1% 0;
   margin-bottom: 10px;
 }
 
@@ -39,33 +33,74 @@ nav ul {
 }
 
 nav li {
+  display: inline;
   text-align: center;
   flex: 1;
 }
 
 nav a {
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-transform: uppercase;
-  text-decoration: underline; /* Better for A11y */
-  color: white; /* Contrast against dark magenta */
+  text-decoration: none;
+  color: white; /* Contrast against dark background */
 }
 
-/* Table styling for accessibility */
-th[scope="col"], th[scope="row"] {
-  background-color: #333;
-  color: white;
+/* Requirement: selector changed to header */
+header h1 {
+  font-size: 4rem;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Requirement: h2 and h3 selectors instead of font[size] */
+h2 {
+  font-size: 3rem;
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-top: 15px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  background-color: #dde;
+  border-collapse: collapse;
+}
+
+th, td {
   padding: 10px;
+  border: 1px solid #777; /* Added for better visibility */
 }
 
-/* Fix for the button appearance */
+/* Requirement: Styling the headers properly */
+th {
+  background-color: #444;
+  color: white;
+}
+
+/* Rest of the layout... */
+main { display: flex; }
+article { flex: 5; }
+.secondary { flex: 2; }
+footer { margin-top: 10px; }
+
+img, audio {
+  display: block;
+  margin: 20px auto;
+}
+
 .show-hide {
   display: block;
-  margin: 10px auto;
-  padding: 10px;
+  width: 200px;
+  margin: 0 auto;
   background: #333;
   color: white;
-  border: 0;
+  padding: 10px;
+  border: none;
   cursor: pointer;
   font-size: 1.6rem;
 }
